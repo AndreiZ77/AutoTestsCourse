@@ -9,8 +9,14 @@ selenium
 pytest
 
 To start use the command line.
+
 Examples:
-pytest --browser_name=chrome --language=en test_items.py
-pytest --browser_name=firefox test_items.py
-pytest --language=es
+
+ pytest --browser_name=chrome --language=en test_items.py
+ 
+ pytest --browser_name=firefox test_items.py
+ 
+ pytest --language=es
+ 
+ pytest
 
