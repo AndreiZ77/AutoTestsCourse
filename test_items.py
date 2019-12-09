@@ -8,5 +8,5 @@ link = "http://selenium1py.pythonanywhere.com/catalogue/hacking-exposed-wireless
 def test_add_product_to_cart_with_set_language(browser):
     browser.implicitly_wait(5)
     browser.get(link)
-    button = browser.find_elements_by_css_selector(".btn.btn-primary.btn-add-tobasket")
+    button = browser.find_elements_by_css_selector(".btn.btn-primary.btn-add-to-basket")
     assert len(button) == 1, "Button to add product to cart not found!"
