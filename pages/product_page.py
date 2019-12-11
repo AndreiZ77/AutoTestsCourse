@@ -18,10 +18,25 @@ class ProductPage(BasePage):
             *ProductPageLocators.PRODUCT_REVIEW), "Product review button is not presented"
 
 
+    def should_not_be_success_messages(self):
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_MESSAGE_NAME), \
+            "Success message 'product add basket' is presented, but should not be"
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_MESSAGE_PRICE), \
+            "Success message 'product price add' is presented, but should not be"
+
+
+    def success_messages_is_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_MESSAGE_NAME), \
+            "Success message 'product add basket' is not disappeared"
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_MESSAGE_PRICE), \
+            "Success message 'product price add' is not disappeared"
+
+
     def product_can_be_add_to_cart(self):
         add_button = self.browser.find_element(*ProductPageLocators.PRODUCT_ADD_TO_BASKET_BUTTON)
         add_button.click()
         self.solve_quiz_and_get_code() #return code
+
 
     def should_be_success_messages(self):
         assert self.is_element_present(
