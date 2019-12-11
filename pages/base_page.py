@@ -1,6 +1,7 @@
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from .locators import BasePageLocators
 from urllib.parse import urlparse
 import math
 
@@ -13,6 +14,22 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
+
+
+    def go_to_login_page(self):
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+
+
+    def should_be_login_url(self):
+        # проверка на корректный url адрес страницы логина
+        url = self.browser.current_url
+        assert "login" in url , f"Login URL:'{url}' is not contains 'login'"
+
+
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
 
     def is_element_present(self, how, what):
         try:
