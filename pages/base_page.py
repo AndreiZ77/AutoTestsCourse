@@ -16,19 +16,24 @@ class BasePage():
         self.browser.get(self.url)
 
 
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+
+
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
 
-    def should_be_login_url(self):
-        # проверка на корректный url адрес страницы логина
-        url = self.browser.current_url
-        assert "login" in url , f"Login URL:'{url}' is not contains 'login'"
+    def should_be_basket_link(self):
+        assert self.is_element_present(*BasePageLocators.BASKET_LINK), "Basket link is not presented"
 
 
-    def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+        link.click()
+
+
 
 
     def is_element_present(self, how, what):

@@ -8,6 +8,11 @@ class LoginPage(BasePage):
         self.should_be_login_form()
         self.should_be_register_form()
 
+    def should_be_login_url(self):
+        # проверка на корректный url адрес страницы логина
+        url = self.browser.current_url
+        assert "login" in url , f"Login URL:'{url}' is not contains 'login'"
+
 
     def should_be_login_form(self):
         # проверка, что есть форма логина
