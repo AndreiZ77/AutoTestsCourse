@@ -1,6 +1,7 @@
 # pytest -v --tb=line test_product_page.py
 from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
+from .pages.login_page import LoginPage
 import pytest
 import time
 
@@ -71,7 +72,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser
 
 
 
-@pytest.mark.login
+#@pytest.mark.login
 class TestLoginFromProductPage():
     # @pytest.fixture(scope="function", autouse=True)
     # def setup(self):
@@ -98,31 +99,29 @@ class TestLoginFromProductPage():
         page.go_to_login_page()
 
 
-
-
-
-
-
-
+@pytest.mark.login_user
 class TestUserAddToBasketFromProductPage():
-#Добавьте в класс фикстуру setup. В этой функции нужно:
-# открыть страницу регистрации
-# зарегистрировать нового пользователя
-# проверить, что пользователь залогинен
-    def test_user_can_add_product_to_basket(self, browser, offer_num):
+    @pytest.fixture(scope="function")
+    def setup(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
+        page = LoginPage(browser, link)
+        page.open()
+        page.should_be_register_form()
+        email = f"user{str(time.time()).split('.')[1]}@fakemail.com"
+        password = "P@ssword!"
+        page.register_new_user(email, password)
+        page.should_be_authorized_user()
+
+    def test_user_cant_see_success_message(self, browser, setup):
         link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+        page = ProductPage(browser, link)
+        page.open()
+        page.should_not_be_success_messages()
+
+    def test_user_can_add_product_to_basket(self, browser, setup):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer3"
         page = ProductPage(browser, link)
         page.open()
         page.should_be_product_page()
 
 
-    def test_user_cant_see_product_in_basket_opened_from_product_page(self, browser):
-        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
-        page = ProductPage(browser, link)
-        page.open()
-        page.should_be_basket_link()
-        page.go_to_basket_page()
-        basket_page = BasketPage(browser, browser.current_url)
-        basket_page.should_be_basket_main_elements()
-        basket_page.should_be_basket_empty_elements()
-        basket_page.should_be_basket_url()

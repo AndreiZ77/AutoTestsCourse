@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
+import time
 
 class LoginPage(BasePage):
 
@@ -32,4 +33,10 @@ class LoginPage(BasePage):
         assert self.is_element_present(
             *LoginPageLocators.REG_SUBMIT), "Registration form submit-button is not presented"
 
-    #def register_new_user(self, email, password):
+    def register_new_user(self, email, password):
+        self.browser.find_element(*LoginPageLocators.REG_EMAIL).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.REG_PASSWORD_1).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_PASSWORD_2).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_SUBMIT).click()
+        with open('testusers.txt', 'a') as f:
+            f.write(f"{email}:{password}\n")
