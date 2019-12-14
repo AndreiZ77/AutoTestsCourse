@@ -2,7 +2,7 @@
 Homework at the Auto tests course Stepik (https://stepik.org/course/575)
 
 
-The test_items.py checks the ability to add goods to the basket in the online store, when choosing different languages.
+The tests checks the ability to add goods to the basket in the online store, when choosing different languages.
 
 First of all, you need to install:
 
