@@ -4,7 +4,7 @@ from .locators import BasketPageLocators
 class BasketPage(BasePage):
 
     def should_be_basket_url(self):
-        # проверка на корректный url адрес страницы логина
+        # проверка на корректный url адрес страницы
         url = self.browser.current_url
         assert "basket" in url , f"Login URL:'{url}' is not contains 'basket'"
 

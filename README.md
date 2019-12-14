@@ -16,11 +16,13 @@ pytest
 
 To start use the command line. Examples:
 
- pytest --browser_name=chrome --language=en test_items.py
+ pytest --browser_name=chrome --language=en test_*.py
  
  pytest --browser_name=firefox test_items.py
  
  pytest --language=es
  
- pytest
+For review main tests:
+ 
+ pytest -v --tb=line --language=en -m need_review 
 
