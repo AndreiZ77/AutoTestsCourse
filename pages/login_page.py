@@ -32,4 +32,4 @@ class LoginPage(BasePage):
         assert self.is_element_present(
             *LoginPageLocators.REG_SUBMIT), "Registration form submit-button is not presented"
 
-    def register_new_user(self, email, password)
+    #def register_new_user(self, email, password):

@@ -22,6 +22,7 @@ class TestLoginFromMainPage():
         page.open()
         page.should_be_login_link()
 
+
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     # Гость открывает главную страницу
     # Переходит в корзину по кнопке в шапке сайта

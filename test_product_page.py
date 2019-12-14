@@ -70,6 +70,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(self, browser
     basket_page.should_be_basket_url()
 
 
+
 @pytest.mark.login
 class TestLoginFromProductPage():
     # @pytest.fixture(scope="function", autouse=True)
@@ -96,14 +97,20 @@ class TestLoginFromProductPage():
         page.should_be_login_link()
         page.go_to_login_page()
 
+
+
+
+
+
+
+
 class TestUserAddToBasketFromProductPage():
 #Добавьте в класс фикстуру setup. В этой функции нужно:
 # открыть страницу регистрации
 # зарегистрировать нового пользователя
 # проверить, что пользователь залогинен
-    @pytest.mark.parametrize('offer_num', [0])  # , 1, 2, 3, 4, 5, 6, pytest.param(7, marks=pytest.mark.xfail), 8, 9])
     def test_user_can_add_product_to_basket(self, browser, offer_num):
-        link = (f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{offer_num}")
+        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
         page = ProductPage(browser, link)
         page.open()
         page.should_be_product_page()
