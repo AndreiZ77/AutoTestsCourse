@@ -1,8 +1,9 @@
 # pytest -v --tb=line --language=en test_main_page.py
 import pytest
-from .pages.main_page import MainPage
-from .pages.login_page import LoginPage
+
 from .pages.basket_page import BasketPage
+from .pages.login_page import LoginPage
+from .pages.main_page import MainPage
 
 LINK = "http://selenium1py.pythonanywhere.com/"
 

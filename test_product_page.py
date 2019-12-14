@@ -1,9 +1,11 @@
 # pytest -v --tb=line test_product_page.py
-from .pages.product_page import ProductPage
+import time
+
+import pytest
+
 from .pages.basket_page import BasketPage
 from .pages.login_page import LoginPage
-import pytest
-import time
+from .pages.product_page import ProductPage
 
 LINK_PARAM = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer"
 LINK = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
