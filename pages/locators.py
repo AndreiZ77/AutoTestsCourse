@@ -36,6 +36,6 @@ class ProductPageLocators():
     PRODUCT_IMAGE = (By.CSS_SELECTOR, ".carousel-inner .item.active img")
     PRODUCT_ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, ".btn.btn-lg.btn-primary.btn-add-to-basket")
     PRODUCT_MESSAGE_NAME = (By.CSS_SELECTOR,
-                        "#messages .alert-noicon.alert-success.fade.in strong:nth-child(1)")
+                            "#messages .alert-noicon.alert-success.fade.in strong:nth-child(1)")
     PRODUCT_MESSAGE_PRICE = (By.CSS_SELECTOR,
                              "#messages .alert-noicon.alert-info.fade.in strong")

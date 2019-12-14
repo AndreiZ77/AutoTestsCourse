@@ -58,7 +58,7 @@ class BasePage():
         return True
 
     def get_url_parts(self):
-        #scheme='http', netloc='www.cwi.nl:80', path='/%7Eguido/Python.html' ,params='', query='', fragment=''
+        # scheme='http', netloc='www.cwi.nl:80', path='/%7Eguido/Python.html' ,params='', query='', fragment=''
         url_parts = urlparse(self.url)
         return url_parts
 

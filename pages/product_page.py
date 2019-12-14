@@ -2,6 +2,7 @@ from .base_page import BasePage
 from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
 
+
 class ProductPage(BasePage):
 
     def should_be_product_page(self):
@@ -32,7 +33,7 @@ class ProductPage(BasePage):
     def product_can_be_add_to_cart(self):
         add_button = self.browser.find_element(*ProductPageLocators.PRODUCT_ADD_TO_BASKET_BUTTON)
         add_button.click()
-        self.solve_quiz_and_get_code() #return code
+        self.solve_quiz_and_get_code()  # return code
 
     def should_be_success_messages(self):
         assert self.is_element_present(
@@ -48,8 +49,3 @@ class ProductPage(BasePage):
             f"The product name: '{prod_message_name}' in the basket, does not match '{prod_name}'"
         assert prod_price == prod_message_price, \
             f"The product price: [{prod_message_price}] in the basket, does not match [{prod_price}]"
-
-
-
-
-

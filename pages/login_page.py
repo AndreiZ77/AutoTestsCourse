@@ -2,6 +2,7 @@ from .base_page import BasePage
 from .locators import LoginPageLocators
 import time
 
+
 class LoginPage(BasePage):
 
     def should_be_login_page(self):
@@ -12,7 +13,7 @@ class LoginPage(BasePage):
     def should_be_login_url(self):
         # проверка на корректный url адрес страницы логина
         url = self.browser.current_url
-        assert "login" in url , f"Login URL:'{url}' is not contains 'login'"
+        assert "login" in url, f"Login URL:'{url}' is not contains 'login'"
 
     def should_be_login_form(self):
         # проверка, что есть форма логина

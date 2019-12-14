@@ -102,5 +102,3 @@ class TestUserAddToBasketFromProductPage():
         page = ProductPage(browser, link)
         page.open()
         page.should_be_product_page()
-
-
