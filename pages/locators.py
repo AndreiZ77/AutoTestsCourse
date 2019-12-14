@@ -11,6 +11,7 @@ class BasketPageLocators():
     BASKET_EMPTY_CONTINUE = (By.CSS_SELECTOR, "#content_inner > p > a")
     BASKET_HOME = (By.CSS_SELECTOR, ".page_inner .breadcrumb a")
     BASKET_IS_NOT_EMPTY = (By.CSS_SELECTOR, "#content_inner .basket-title.hidden-xs .row")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 # class MainPageLocators():
 #     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
